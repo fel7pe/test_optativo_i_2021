@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Registro de usuario</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="login.html">Ingresar</a></li>
+                    <li>Acerca De</li>
+                    <li>Contacto</li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <section id="card">
+                <header>
+                    <h3>Registrarse</h3>
+                </header>
+                <form id="datos_usuario">
+                    <div>
+                        <label>Nombre y Apellido</label>
+                        <input type="text" class="fullWidth bigger" required />
+                    </div>
+                    <div>
+                        <label>Correo</label>
+                        <input type="email" placeholder="Su direcci&oacute;n de correo" class="fullWidth bigger" required />
+                    </div>
+                    <div>
+                        <label>Contrase&ntilde;a</label>
+                        <input id="password" type="password" class="fullWidth bigger" required />
+                    </div>
+
+                    <div>
+                        <label>Confirmaci&oacute;n de contrase&ntilde;a</label>
+                        <input id="confirmacion" type="password" class="fullWidth bigger" required />
+                    </div>
+
+                    <div>
+                        <label>Navegadores preferidos</label>
+                        <select multiple class="fullWidth bigger" required>
+                            <option value="" disabled selected>Seleccione sus navegadores favoritos</option>
+                            <option value="firefox">Mozilla Firefox</option>
+                            <option value="chrome">Google Chrome</option>
+                            <option value="edge">Microsoft Edge</option>
+                            <option value="safari">Safari</option>
+                            <option value="opera">Opera</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Informaci&oacute;n adicional</label>
+                        <textarea class="fullWidth bigger" rows="5" required></textarea>
+                    </div>
+
+                    <div>
+                        <label>Curso actual</label>
+                        <input type="text" list="cursos" class="fullWidth bigger" required />
+                        <datalist id="cursos">
+                            <option>Optativo 1</option>
+                            <option>Bases de datos</option>
+                            <option>Cálculo</option>
+                        </datalist>
+                    </div>
+
+                    <div>
+                        <label>Fecha actual</label>
+                        <output class="fullWidth bigger">14/04/2021</output>
+                    </div>
+
+                    <div class="centered">
+                        <input type="submit" value="Registrarse" />
+                    </div>
+                </form>
+            </section>
+        </section>
+        <script>
+            function confirmar(evento) {
+                const password = document.getElementById("password");
+                const confirmacion = document.getElementById("confirmacion");
+
+                if (password.value != confirmacion.value) {
+                    alert("El password y la confirmación deben ser iguales")
+                    event.preventDefault();
+                }
+            }
+
+            const formulario = document.getElementById('datos_usuario');
+
+            formulario.addEventListener("submit", confirmar);
+        </script>
+    </body>
+</html>
